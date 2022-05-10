@@ -105,7 +105,7 @@ class Question(models.Model):
     # Foreign key to lesson
     # question text
     # question grade/mark
-    lesson = models.ForeignKey(Lesson, on_delete=models.CASCADE)
+    lesson = models.ForeignKey(Course, on_delete=models.CASCADE)
     question_text = models.TextField()
     grade = models.IntegerField(default=0)
 
