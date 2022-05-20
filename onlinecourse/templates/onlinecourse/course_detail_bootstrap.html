@@ -62,11 +62,13 @@
                 </div>
 
             -->
-            <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#exam" aria-expanded="false" aria-controls="exam">
+            <div>
+                {% if user.is_authenticated %}
+            <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#exam" aria-expanded="false" aria-controls="exam">
                 Start Exam
               </button>
             <div id="exam" class="collapse">
-                {% if user.is_authenticated %}
+                
                 <!-- A choice submission form example -->
             <form id="questionform" action="{% url 'onlinecourse:submit' course.id %}" method="post">
                 <div class="card mt-1">
@@ -90,8 +92,10 @@
                     {% endfor %}
                     <input class="btn btn-success btn-block" type="submit" value="Submit">
             </form>
-                {% endif %}
+                
                 </div>
+                {% endif %}
+            </div>
 
 
             <!-- <HINT> If user is authenticated, show course exam with a list of question -->
